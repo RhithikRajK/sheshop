@@ -1,0 +1,19 @@
+.p{
+    align-items: center;    
+}
+
+h1{
+    padding-top: 10px !important;
+    text-align: center;
+    color: white !important;
+    font-size: 54px !important;
+    font-family: Luckiest Guy !important;
+}
+
+h2{
+    padding-top: 50px !important;
+    text-align: center;
+    color: white !important;
+    font-size: 34px !important;
+    font-family: Luckiest Guy !important;
+}
