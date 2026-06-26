@@ -1006,6 +1006,20 @@ button:focus-visible {
     overflow: hidden;
   }
 
+  .hero::before {
+    content: none;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 18px 12px 0;
+    border-radius: 18px;
+    background: url("assets/from-pdf/logo_inverted.png") center / contain no-repeat;
+    z-index: -1;
+    pointer-events: none;
+  }
+
   .hero-grid {
     gap: 20px;
   }
@@ -1020,26 +1034,15 @@ button:focus-visible {
     isolation: isolate;
     margin-top: 12px;
     padding: 24px 18px;
-    padding-right: clamp(214px, 48vw, 306px);
     border-radius: 16px;
     border: 1px solid rgba(194, 15, 114, 0.2);
-    background: linear-gradient(160deg, rgba(255, 236, 247, 0.86), rgba(250, 228, 241, 0.76));
+    background: linear-gradient(160deg, rgba(255, 236, 247, 0.82), rgba(250, 228, 241, 0.72));
     box-shadow: 0 10px 22px rgba(84, 38, 64, 0.1);
+    overflow: hidden;
   }
 
   .hero-content::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 24px;
-    width: clamp(176px, 39vw, 250px);
-    aspect-ratio: 1 / 1;
-    transform: translateY(-50%) rotate(-2deg);
-    background: url("assets/from-pdf/LOGO.png") center / contain no-repeat;
-    filter: drop-shadow(0 10px 18px rgba(121, 12, 79, 0.22));
-    opacity: 1;
-    z-index: 0;
-    pointer-events: none;
+    content: none;
   }
 
   .hero-content > * {
@@ -1057,17 +1060,18 @@ button:focus-visible {
 
   .hero-copy {
     font-size: 0.98rem;
-    line-height: 1.75;
+    line-height: 1.72;
+    max-width: 42ch;
   }
 
   .hero-logo-panel {
-    width: min(360px, 88vw);
+    width: min(400px, 92vw);
     margin-inline: auto;
     transform: none;
   }
 
   .hero-logo-panel img {
-    height: 210px;
+    height: clamp(190px, 40vw, 250px);
     object-fit: contain;
     background: linear-gradient(160deg, #fce4f1, #f3d8e9);
   }
@@ -1224,7 +1228,12 @@ button:focus-visible {
   }
 
   .hero::before {
+    content: none;
+  }
+
+  .hero::after {
     inset: 10px 8px 0;
+    background-size: contain;
   }
 
   .hero {
@@ -1234,14 +1243,11 @@ button:focus-visible {
   .hero-content {
     margin-top: 16px;
     padding: 20px 14px;
-    padding-right: clamp(190px, 49vw, 266px);
+    padding-right: 14px;
   }
 
   .hero-content::before {
-    right: 20px;
-    width: clamp(160px, 42vw, 214px);
-    background: url("assets/from-pdf/LOGO.png") center / contain no-repeat;
-    opacity: 1;
+    content: none;
   }
 
   .hero-content .eyebrow,
@@ -1252,11 +1258,11 @@ button:focus-visible {
   }
 
   .hero-logo-panel {
-    width: min(320px, 90vw);
+    width: min(360px, 92vw);
   }
 
   .hero-logo-panel img {
-    height: 185px;
+    height: clamp(180px, 52vw, 220px);
   }
 
   .about .about-collection::before,
@@ -1337,14 +1343,11 @@ button:focus-visible {
   .hero-content {
     margin-top: 18px;
     padding: 18px 12px;
-    padding-right: clamp(176px, 50vw, 246px);
+    padding-right: 12px;
   }
 
   .hero-content::before {
-    right: 18px;
-    width: clamp(146px, 44vw, 198px);
-    background: url("assets/from-pdf/LOGO.png") center / contain no-repeat;
-    opacity: 1;
+    content: none;
   }
 
   .hero-content .eyebrow,
@@ -1360,8 +1363,8 @@ button:focus-visible {
   }
 
   h1 {
-    font-size: clamp(2rem, 11vw, 2.6rem);
-    line-height: 1.06;
+    font-size: clamp(1.8rem, 9.6vw, 2.28rem);
+    line-height: 1.08;
   }
 
   .hero-copy {
@@ -1420,10 +1423,7 @@ button:focus-visible {
   }
 
   .hero-content::before {
-    right: 16px;
-    width: clamp(132px, 44vw, 178px);
-    background: url("assets/from-pdf/LOGO.png") center / contain no-repeat;
-    opacity: 1;
+    content: none;
   }
 
   .hero-content .eyebrow,
@@ -1434,7 +1434,7 @@ button:focus-visible {
   }
 
   .hero-content {
-    padding-right: clamp(158px, 51vw, 224px);
+    padding-right: 12px;
   }
 
   .hero-actions .btn,
