@@ -798,8 +798,48 @@ h2 {
 }
 
 @media (max-width: 920px) {
+  .nav-wrap {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "brand cart"
+      "nav nav";
+    align-items: center;
+    min-height: auto;
+    row-gap: 10px;
+    padding: 14px 0;
+  }
+
+  .brand {
+    grid-area: brand;
+  }
+
+  .nav-wrap > .btn {
+    grid-area: cart;
+    justify-self: end;
+  }
+
   .main-nav {
+    grid-area: nav;
+    display: flex;
+    gap: 18px;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 2px 0 4px;
+    scrollbar-width: none;
+  }
+
+  .main-nav::-webkit-scrollbar {
     display: none;
+  }
+
+  .main-nav a {
+    font-size: 0.72rem;
+  }
+
+  .main-nav a + a::before {
+    left: -11px;
   }
 
   .hero-grid,
@@ -810,7 +850,7 @@ h2 {
   }
 
   .hero {
-    padding-top: 74px;
+    padding: 78px 0 60px;
   }
 
   .hero::before {
@@ -820,6 +860,15 @@ h2 {
 
   .hero-logo-panel img {
     height: 320px;
+  }
+
+  .about,
+  .collection,
+  .lookbook,
+  .brands,
+  .visit,
+  .connect {
+    padding: 82px 0;
   }
 
   .about-model-stack {
@@ -875,10 +924,81 @@ h2 {
   }
 }
 
+@media (max-width: 760px) {
+  .container {
+    width: min(1180px, 94vw);
+  }
+
+  .hero {
+    padding: 60px 0 48px;
+  }
+
+  .hero-copy {
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+
+  .hero-logo-panel {
+    width: min(460px, 100%);
+  }
+
+  .hero-logo-panel img {
+    height: 300px;
+  }
+
+  .quote-banner {
+    padding: 28px 20px;
+  }
+
+  .quote-line {
+    font-size: clamp(1.7rem, 9.5vw, 3.3rem);
+  }
+
+  .brand-card {
+    width: 124px;
+    flex-basis: 124px;
+    height: 94px;
+  }
+}
+
 @media (max-width: 560px) {
-  .btn {
+  .brand-text {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+  }
+
+  .hero::before {
+    inset: 10px 8px 0;
+  }
+
+  .hero-actions .btn,
+  .visit-actions .btn,
+  .modal-actions .btn,
+  .collection-cta .btn {
     width: 100%;
     text-align: center;
+  }
+
+  .about,
+  .collection,
+  .lookbook,
+  .brands,
+  .visit,
+  .connect {
+    padding: 66px 0;
+  }
+
+  .main-nav {
+    gap: 14px;
+  }
+
+  .main-nav a {
+    font-size: 0.68rem;
+    letter-spacing: 0.13em;
+  }
+
+  .quote-banner {
+    padding: 24px 16px;
   }
 
   .footer-wrap {
