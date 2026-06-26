@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>She Shop | Products</title>
+  <meta name="description" content="Products available at She Shop, Kerala." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .products-main {
+      padding: 56px 0 42px;
+    }
+
+    .products-head {
+      margin-bottom: 18px;
+    }
+
+    .products-note {
+      color: var(--muted);
+      margin-top: 0;
+      margin-bottom: 24px;
+    }
+
+    /* Filter Toolbar Styles */
+    .filter-toolbar {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .filter-input, .filter-select {
+      padding: 12px 16px;
+      border: 1px solid rgba(169, 40, 120, 0.3);
+      border-radius: 12px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 1rem;
+      background-color: #fff;
+      color: #333;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .filter-input {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .filter-select {
+      min-width: 180px;
+      cursor: pointer;
+    }
+
+    .filter-input:focus, .filter-select:focus {
+      border-color: #a92878;
+    }
+
+    .category-section {
+      margin-bottom: 48px;
+    }
+
+    .category-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.8rem;
+      color: #a92878;
+      margin-bottom: 18px;
+      border-bottom: 2px solid rgba(169, 40, 120, 0.1);
+      padding-bottom: 8px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .product-card {
+      background: linear-gradient(160deg, #fff5fb, #ffedf7);
+      border: 1px solid rgba(169, 40, 120, 0.2);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      object-position: center;
+      background: #f5e6ef;
+    }
+
+    .product-card-body {
+      padding: 14px;
+    }
+
+    .product-card h3 {
+      margin: 0 0 6px;
+      font-size: 1.15rem;
+    }
+
+    .product-meta {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .no-results {
+      display: none;
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--muted);
+      margin: 40px 0;
+    }
+
+    .back-row {
+      margin-top: 22px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 920px) {
+      .product-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+      }
+      .filter-toolbar {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="She Shop Home">
+        <span class="brand-dot"></span>
+        <span class="brand-text">SHE SHOP</span>
+      </a>
+      <a class="btn btn-ghost" href="index.html">Back</a>
+    </div>
+  </header>
+
+  <main class="products-main">
+    <section class="container">
+      <div class="products-head">
+        <p class="eyebrow">In-Store Products</p>
+        <h1>Items available at She Shop</h1>
+      </div>
+      <p class="products-note">
+        This page showcases the key product categories currently sold at She Shop. For live stock and size
+        availability, please visit the store directly.
+      </p>
+
+      <div class="filter-toolbar">
+        <input 
+          type="text" 
+          id="searchInput" 
+          class="filter-input" 
+          placeholder="Search for items (e.g., Sports bra, Leggings)..." 
+        />
+        <select id="categorySelect" class="filter-select">
+          <option value="all">All Categories</option>
+          <option value="bra">Bra Collection</option>
+          <option value="panty">Panty Collection</option>
+          <option value="lounge">Lounge Wear</option>
+          <option value="shape">Shape Wear</option>
+          <option value="bottoms">Bottoms</option>
+          <option value="kids">Kids Collection</option>
+        </select>
+      </div>
+
+      <div id="noResults" class="no-results">No items match your search.</div>
+
+      <section class="category-section" data-category="bra">
+        <h2 class="category-title">Bra Collection</h2>
+        <div class="product-grid">
+          <article class="product-card"><img src="assets/from-pdf/image1.png" alt="Beginners Bra" /><div class="product-card-body"><h3>Beginners Bra</h3><p class="product-meta">Category: Bra</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image2.png" alt="Sports Bra" /><div class="product-card-body"><h3>Sports Bra</h3><p class="product-meta">Category: Bra</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image1.png" alt="Everyday Bra" /><div class="product-card-body"><h3>Everyday Bra</h3><p class="product-meta">Category: Bra</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image2.png" alt="Padded Bra" /><div class="product-card-body"><h3>Padded Bra</h3><p class="product-meta">Category: Bra</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image1.png" alt="Strapless Bra" /><div class="product-card-body"><h3>Strapless Bra</h3><p class="product-meta">Category: Bra</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image2.png" alt="Backless Bra" /><div class="product-card-body"><h3>Backless Bra</h3><p class="product-meta">Category: Bra</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image1.png" alt="T-Shirt Bra" /><div class="product-card-body"><h3>T-Shirt Bra</h3><p class="product-meta">Category: Bra</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image2.png" alt="Cotton Bra" /><div class="product-card-body"><h3>Cotton Bra</h3><p class="product-meta">Category: Bra</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image1.png" alt="Minimiser Bra" /><div class="product-card-body"><h3>Minimiser Bra</h3><p class="product-meta">Category: Bra</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image2.png" alt="Plus Size Bra" /><div class="product-card-body"><h3>Plus Size Bras</h3><p class="product-meta">Category: Bra</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image1.png" alt="Feeding Bra" /><div class="product-card-body"><h3>Feeding Bra</h3><p class="product-meta">Category: Bra</p></div></article>
+        </div>
+      </section>
+
+      <section class="category-section" data-category="panty">
+        <h2 class="category-title">Panty Collection</h2>
+        <div class="product-grid">
+          <article class="product-card"><img src="assets/from-pdf/image2.png" alt="Hipster Panty" /><div class="product-card-body"><h3>Hipster</h3><p class="product-meta">Category: Panty</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image1.png" alt="Bikini Panty" /><div class="product-card-body"><h3>Bikini</h3><p class="product-meta">Category: Panty</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image2.png" alt="Period Panty" /><div class="product-card-body"><h3>Period Panty</h3><p class="product-meta">Category: Panty</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image1.png" alt="Maternity Panty" /><div class="product-card-body"><h3>Maternity Panty</h3><p class="product-meta">Category: Panty</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image2.png" alt="Shorts" /><div class="product-card-body"><h3>Shorts</h3><p class="product-meta">Category: Panty</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image1.png" alt="Tights" /><div class="product-card-body"><h3>Tights</h3><p class="product-meta">Category: Panty</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image2.png" alt="Premium Fabrics" /><div class="product-card-body"><h3>Premium Fabrics</h3><p class="product-meta">Available in Bamboo, Lycra & Modal materials</p></div></article>
+        </div>
+      </section>
+
+      <section class="category-section" data-category="lounge">
+        <h2 class="category-title">Lounge Wear</h2>
+        <div class="product-grid">
+          <article class="product-card"><img src="assets/from-pdf/image1.png" alt="Nighty" /><div class="product-card-body"><h3>Nighty</h3><p class="product-meta">Category: Lounge Wear</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image2.png" alt="Night Suit" /><div class="product-card-body"><h3>Night Suit</h3><p class="product-meta">Category: Lounge Wear</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image1.png" alt="Capri Set" /><div class="product-card-body"><h3>Capri Set</h3><p class="product-meta">Category: Lounge Wear</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image2.png" alt="Bermuda Set" /><div class="product-card-body"><h3>Bermuda Set</h3><p class="product-meta">Category: Lounge Wear</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image1.png" alt="Frock Nighty" /><div class="product-card-body"><h3>Frock Nighty</h3><p class="product-meta">Category: Lounge Wear</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image2.png" alt="Feeding Nighty" /><div class="product-card-body"><h3>Feeding Nighty</h3><p class="product-meta">Category: Lounge Wear</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image1.png" alt="Feeding Kurti" /><div class="product-card-body"><h3>Feeding Kurti</h3><p class="product-meta">Category: Lounge Wear</p></div></article>
+        </div>
+      </section>
+
+      <section class="category-section" data-category="shape">
+        <h2 class="category-title">Shape Wear</h2>
+        <div class="product-grid">
+          <article class="product-card"><img src="assets/from-pdf/image2.png" alt="Shape Me Belt" /><div class="product-card-body"><h3>Shape Me Belt</h3><p class="product-meta">Category: Shape Wear</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image1.png" alt="Body Shaper" /><div class="product-card-body"><h3>Body Shaper</h3><p class="product-meta">Category: Shape Wear</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image2.png" alt="Tummy Tucker Panty" /><div class="product-card-body"><h3>Tummy Tucker Panty</h3><p class="product-meta">Category: Shape Wear</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image1.png" alt="Stockings" /><div class="product-card-body"><h3>Stockings</h3><p class="product-meta">Category: Shape Wear</p></div></article>
+        </div>
+      </section>
+
+      <section class="category-section" data-category="bottoms">
+        <h2 class="category-title">Bottoms</h2>
+        <div class="product-grid">
+          <article class="product-card"><img src="assets/from-pdf/image2.png" alt="Maternity Leggings" /><div class="product-card-body"><h3>Maternity Leggings</h3><p class="product-meta">Category: Bottoms</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image1.png" alt="Kurti Pant" /><div class="product-card-body"><h3>Kurti Pant</h3><p class="product-meta">Category: Bottoms</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image2.png" alt="Plazzo Pant" /><div class="product-card-body"><h3>Plazzo Pant</h3><p class="product-meta">Category: Bottoms</p></div></article>
+        </div>
+      </section>
+
+      <section class="category-section" data-category="kids">
+        <h2 class="category-title">Kids Collection</h2>
+        <div class="product-grid">
+          <article class="product-card"><img src="assets/from-pdf/image1.png" alt="Kids Panty" /><div class="product-card-body"><h3>Kids Panty</h3><p class="product-meta">Category: Kids</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image2.png" alt="Kids Panty Shorts" /><div class="product-card-body"><h3>Panty Shorts</h3><p class="product-meta">Category: Kids</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image1.png" alt="Kids Camisole" /><div class="product-card-body"><h3>Camisole</h3><p class="product-meta">Category: Kids</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image2.png" alt="Kids Boxer" /><div class="product-card-body"><h3>Boxer</h3><p class="product-meta">Category: Kids</p></div></article>
+          <article class="product-card"><img src="assets/from-pdf/image1.png" alt="Baby Dress" /><div class="product-card-body"><h3>Baby Dress</h3><p class="product-meta">Category: Kids</p></div></article>
+        </div>
+      </section>
+
+      <div class="back-row">
+        <a class="btn btn-outline" href="index.html#brands">Back to Brands</a>
+        <a class="btn btn-solid" href="https://share.google/mIjie8dcZ7ZmvXlgB" target="_blank" rel="noopener noreferrer">Visit Store Location</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const categorySelect = document.getElementById('categorySelect');
+    const sections = document.querySelectorAll('.category-section');
+    const noResults = document.getElementById('noResults');
+
+    function filterProducts() {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      const selectedCategory = categorySelect.value;
+      let overallVisibleCards = 0;
+
+      sections.forEach(section => {
+        const sectionCategory = section.getAttribute('data-category');
+        const cards = section.querySelectorAll('.product-card');
+        let visibleCardsInSection = 0;
+
+        // Check if the overall section passes the category dropdown criteria
+        const categoryMatches = (selectedCategory === 'all' || selectedCategory === sectionCategory);
+
+        cards.forEach(card => {
+          const title = card.querySelector('h3').textContent.toLowerCase();
+          const meta = card.querySelector('.product-meta').textContent.toLowerCase();
+          const searchMatches = title.includes(searchTerm) || meta.includes(searchTerm);
+
+          if (categoryMatches && searchMatches) {
+            card.style.display = 'block';
+            visibleCardsInSection++;
+            overallVisibleCards++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Hide section header completely if no matching products are visible within it
+        if (visibleCardsInSection > 0) {
+          section.style.display = 'block';
+        } else {
+          section.style.display = 'none';
+        }
+      });
+
+      // Handle the "No results found" placeholder state
+      if (overallVisibleCards === 0) {
+        noResults.style.display = 'block';
+      } else {
+        noResults.style.display = 'none';
+      }
+    }
+
+    searchInput.addEventListener('input', filterProducts);
+    categorySelect.addEventListener('change', filterProducts);
+  </script>
+</body>
+</html>
